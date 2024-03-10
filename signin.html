@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickZone_Login</title>
+    <link rel="stylesheet" href="Assets/signin.css">
+</head>
+<body>
+    
+    <div class="Log">
+        <img class="avatar" src="Assets/Img/BotanicareLogo.jpg" alt=""> 
+        <h1>Sign In</h1>
+        <form id="login">
+            
+            <label for="username">Username</label>
+            <input type="text" placeholder="Insert your Username" id="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Insert your Password" id="password" required>
+
+            <button type="button" id="show">Show Password</button>
+
+            <input type="submit" value="Sign In">
+
+            <a href="/signup.html">Don't have an account?</a><br>
+            <a href="/index.html">Go back</a>
+            
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+    
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+    
+            console.log('Usuario:', username);
+            console.log('Contraseña:', password);
+    
+            
+            document.getElementById('login').reset();
+    
+            
+            window.location.href = "/index.html";
+        });
+    
+        document.getElementById('show').addEventListener('click', function() {
+            var passwordInput = document.getElementById('password');
+            passwordInput.type = (passwordInput.type === 'password') ? 'text' : 'password';
+        });
+    </script>
+
+</body>
+</html>

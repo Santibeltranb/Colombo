@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botanicare Sign Up</title>
+    <link rel="stylesheet" href="Assets/signup.css">
+</head>
+
+<body>
+    <div class="Registro">
+
+        <img class="logo" src="Assets/Img/BotanicareLogo.jpg" alt=""> 
+
+        <h2 class="titulo">SIGN UP</h2>
+
+        <form action="#" class="Form" onsubmit="guardarDatosYRedirigir(event)">
+            <div class="padre">
+                <div class="nombre">
+                    <label for="name">Name</label>
+                    <input type="text" pattern="[A-Za-z]+" title="Insert only characters" placeholder="Insert your Name"
+                        id="name" required>
+                </div>
+
+                <div class="apellido">
+                    <label for="surname">Surname</label>
+                    <input type="text" pattern="[A-Za-z]+" title="Insert only characters" placeholder="Insert your Surname"
+                        id="surname" required>
+                </div>
+
+                <div class="email">
+                    <label for="correo">E-Mail</label>
+                    <input type="email" placeholder="Insert an E-mail" id="correo" required>
+                </div>
+
+                <div class="usuario">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="Insert an Username" id="username" required>
+                </div>
+
+                <div class="contraseña">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Insert a Password" id="password" required>
+                </div>
+                <button type="button" id="show">Show Password</button>
+
+                <input type="submit" value="Register">
+
+                <div class="cuenta">
+                    <a href="/signin.html">Already have an account?</a><br>
+                    <a href="/index.html">Go back</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('show').addEventListener('click', function () {
+            var passwordInput = document.getElementById('password');
+            passwordInput.type = (passwordInput.type === 'password') ? 'text' : 'password';
+        });
+    
+        function guardarDatosYRedirigir(event) {
+            event.preventDefault();
+    
+            var nombre = document.getElementById('name').value;
+            var correo = document.getElementById('correo').value;
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+    
+            
+            if (password.length < 6) {
+                alert('Password need at least 6 characters');
+                return; 
+            }
+    
+            
+            var userData = {
+                nombre: nombre,
+                correo: correo,
+                username: username,
+                password: password
+            };
+    
+            localStorage.setItem('userData', JSON.stringify(userData));
+    
+           
+            alert('Succesfully Registered');
+    
+            
+            window.location.href = "/signin.html";
+    
+            
+            document.querySelector(".Form").reset();
+        }
+    </script>
+
+</body>
+
+</html>

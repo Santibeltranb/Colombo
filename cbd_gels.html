@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botanicare Gels</title>
+    <link rel="stylesheet" href="Assets/gels.css">
+</head>
+<body>
+    <header>
+        
+        <div class="container">
+            <p class="logo">BotaniCare</p> 
+            <nav>
+                <a href="index.html">Products</a>
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-img">
+            <img src="Assets/Img/GelCropped.jpg" alt="Img-product">
+        </div>
+
+        <div class="container-ProductInfo">
+            <div class="container-ProductPrice">
+                <h2>CBD Gels</h2>
+                <span id="productPrice">$25.500</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        
+            <div class="container-ProductDetails">
+                <div class="form-group">
+                    <label for="size">Size</label>
+                    <select name="size" id="size" onchange="updatePrice()">
+                        <option disabled selected value="">Choose an option</option>
+                        <option value="10ml">10 mg</option>
+                        <option value="20ml">20 mg</option>
+                        <option value="30ml">30 mg</option>
+                    </select>
+                </div>
+            </div>
+
+        <div class="cointainer-addBag">
+            <div class="container-Quantity">
+                <input type="number" placeholder="1" value="1" min="1" class="input-Quantity">
+                <div class="btn-Inc-Dec">
+                    <i class="fa-solid fa-chevron-up" onclick="incrementQuantity()"></i>
+                    <i class="fa-solid fa-chevron-down" onclick="decrementQuantity()"></i>
+                </div>
+            </div>
+
+            <button class="btn-addBag" onclick="addToBag()">
+                <i class="fa-solid fa-plus"></i>
+                Add to Bag
+            </button>
+        </div>   
+
+        <div class="container-Description">
+            <div class="title-desc" onclick="toggleParagraph('.txt-desc')">
+                <h4>Description</h4>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="txt-desc">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis necessitatibus minima incidunt culpa amet cumque nostrum maxime magni ipsa, quasi qui neque unde commodi eaque explicabo, perferendis illum aliquid vel.</p>
+            </div>
+        </div>
+
+        <div class="container-additionalInfo">
+            <div class="title-additional" onclick="toggleParagraph('.txt-additionalInfo')">
+                <h4>Additional Information</h4>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="txt-additionalInfo">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, dolores. Eos ut mollitia libero aut porro dolores quis reiciendis deserunt quisquam exercitationem. Illo officia omnis quia quasi corrupti, iure pariatur.</p>
+            </div>
+        </div>
+
+        <div class="container-Reviews">
+            <div class="title-Rev" onclick="toggleParagraph('.txt-Rev')">
+                <h4>Reviews</h4>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="txt-Rev">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id nostrum, eaque recusandae excepturi aperiam totam consectetur quis repellat eum accusantium iste dolor est minima magnam quisquam fugiat ipsam. Nesciunt, accusamus?</p>
+        </div>
+
+        <div class="container-Social">
+            <span>Share</span>
+            <div class="container-btnSocial">
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <script>
+            function updatePrice() {
+                var sizeSelect = document.getElementById("size");
+                var priceSpan = document.getElementById("productPrice");
+                var selectedSize = sizeSelect.value;
+    
+                switch (selectedSize) {
+                    case "10ml":
+                        priceSpan.textContent = "$25.500";
+                        break;
+                    case "20ml":
+                        priceSpan.textContent = "$35.500";
+                        break;
+                    case "30ml":
+                        priceSpan.textContent = "$50.000";
+                        break;
+                    default:
+                        priceSpan.textContent = "$25.500";
+                }
+            }
+
+    function incrementQuantity() {
+        var quantityInput = document.querySelector('.input-Quantity');
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+    }
+
+    function decrementQuantity() {
+        var quantityInput = document.querySelector('.input-Quantity');
+        if (parseInt(quantityInput.value) > 1) {
+            quantityInput.value = parseInt(quantityInput.value) - 1;
+        }
+    }
+
+    function addToBag() {
+        var quantityInput = document.querySelector('.input-Quantity');
+        var cartIcon = document.querySelector('.fa-cart-shopping');
+        var currentQuantity = parseInt(quantityInput.value);
+        cartIcon.innerHTML = '<span>' + currentQuantity + '</span><i class="fa-solid fa-cart-shopping"></i>';
+    }
+
+    function toggleParagraph(paragraphClass) {
+        var paragraph = document.querySelector(paragraphClass);
+        paragraph.classList.toggle('expanded');
+    }
+        </script>
+
+    </main>
+
+
+    <section id="Products">
+        <div class="container">
+            <h2>Related Products.</h2>
+            <div class="marcas">
+
+                <div class="carta">
+                    <h3>CBD Cream</h3>
+                    <p>A different way to relieve inflammation and pain.</p>
+                    <a href="cbd_cream.html" class="check-btn">Check</a>
+                </div>
+
+                <div class="carta">
+                    <h3>CBD Oil</h3>
+                    <p>A different way to relieve anxiety, stress and depression.</p>
+                    <a href="cbd_oil.html" class="check-btn">Check</a>
+                </div>
+
+                <div class="carta">
+                    <h3>CBD Gummies</h3>
+                    <p>CBD edibles that are colorful, delicious, and effective.</p>
+                    <a href="cbd_gummies.html" class="check-btn">Check</a>
+                </div>
+
+                <div class="carta">
+                    <h3>Kits</h3>
+                    <p>A mix of all our products to enjoy.</p>
+                    <a href="cbd_kits.html" class="check-btn">Check</a>
+                </div>
+
+            </div>
+        </section>
+
+    <footer>
+        <div class="container">
+        <p>&copy; 2024, Botanicare, Co</p>
+        </div> 
+    </footer>
+
+    <script src="https://kit.fontawesome.com/1ef0f44c35.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
